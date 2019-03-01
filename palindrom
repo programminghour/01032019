@@ -1,0 +1,33 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+string napisy[1000];
+
+bool sprawdz(string n)
+{
+    for(int j=0;j<(n.length()/2);j++)
+            if(n[j]!=n[n.length()-j-1])
+                return false;
+    return true;
+}
+
+int main()
+{
+    ifstream plik("dane.txt");
+    string napis;
+   // for(int i=0;i<1000;i++)
+     //   plik>>napisy[i];
+
+    for(int i=0;i<1000;i++)
+    {
+        plik>>napis;
+
+        if(sprawdz(napis))
+            cout<<napis<<endl;
+    }
+
+
+    return 0;
+}
